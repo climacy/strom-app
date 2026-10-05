@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E2A22">
+<title>STRÖM · Soumissions</title>
+<link rel="preload" href="fonts/instrument-sans-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20261001f">
+</head>
+<body>
+
+<!-- Icon sprite (UI only) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 6.8-1.2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4h8A1.5 1.5 0 0 1 15 5.5V21M15 10h3.5a1.5 1.5 0 0 1 1.5 1.5V21M3 21h18M8 8h3M8 12h3M8 16h3"/></symbol>
+    <symbol id="i-roof" viewBox="0 0 24 24"><path d="m2.5 11.5 9.5-7.5 9.5 7.5M5.5 9.5V20h13V9.5M10 20v-5h4v5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4ZM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-6.5 18-4.5-7-7-4.5L21 3Z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 4.2 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0ZM12 9.5v4M12 17h.01"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4ZM8 4v5h7V4M8 20v-6h8v6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5ZM14 3v5h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-compare" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11M11 10V4.5a1.5 1.5 0 0 1 3 0V11M14 10.5V6a1.5 1.5 0 0 1 3 0v8a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.5 16a1.6 1.6 0 0 1 2.4-2L8 15.5V12"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5"/></symbol>
+    <symbol id="i-square-plus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M12 8.5v7M8.5 12h7"/></symbol>
+    <symbol id="i-eraser" viewBox="0 0 24 24"><path d="m7 21-4-4a1.5 1.5 0 0 1 0-2.1L13.9 4a1.5 1.5 0 0 1 2.1 0L21 9a1.5 1.5 0 0 1 0 2.1L11 21H7ZM21 21H11M8.5 10.5l6 6"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-line" viewBox="0 0 24 24"><path d="M5 19 19 5"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="5" r="2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></symbol>
+    <symbol id="i-chev-up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+    <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+    <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/></symbol>
+    <symbol id="i-loader" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/></symbol>
+  </defs>
+</svg>
+
+<header class="appbar">
+  <button class="brand" data-go="home" aria-label="Accueil STRÖM">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 18 16 7l12 11"/><path d="M8 25h16"/><path d="M11 21h10"/></svg>
+    <span>STRÖM</span>
+  </button>
+  <nav id="flowSteps" class="flow-steps" aria-label="Étapes"></nav>
+  <div class="tag" id="headerTag">Soumissions professionnelles</div>
+</header>
+
+<main>
+
+<!-- ACCUEIL -->
+<section id="home" class="panel active">
+  <div class="home-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Plateforme de soumission</p>
+      <h1>Un projet.<br>Des métrés validés.<br>Des offres comparables.</h1>
+      <p class="hero-lead">Ström prépare les quantités du projet. Les entreprises consultent ensuite le bordereau associé à l’adresse et renseignent uniquement leurs prix.</p>
+    </div>
+    <figure class="hero-plan" aria-hidden="true">
+      <svg viewBox="0 0 560 420">
+        <defs>
+          <pattern id="heroGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/></pattern>
+          <pattern id="heroPv" width="26" height="18" patternUnits="userSpaceOnUse"><rect x="1.5" y="1.5" width="23" height="15" rx="1.5" fill="rgba(200,238,106,.22)" stroke="rgba(200,238,106,.75)" stroke-width="1"/></pattern>
+          <clipPath id="heroSouth"><path d="M80 330 210 215h140l130 115Z"/></clipPath>
+        </defs>
+        <rect width="560" height="420" fill="url(#heroGrid)"/>
+        <!-- pans -->
+        <path class="hp-pan" d="M80 100h400L350 215H210Z"/>
+        <path class="hp-pan" d="M80 330 210 215h140l130 115Z"/>
+        <path class="hp-pan alt" d="M80 100 210 215 80 330Z"/>
+        <path class="hp-pan alt" d="M480 100 350 215l130 115Z"/>
+        <g clip-path="url(#heroSouth)"><rect class="hp-pv" x="150" y="250" width="260" height="66" fill="url(#heroPv)"/></g>
+        <!-- obstacles -->
+        <rect class="hp-ob" x="300" y="138" width="34" height="26" rx="2"/>
+        <rect class="hp-ob" x="150" y="150" width="20" height="20" rx="2"/>
+        <!-- lines -->
+        <path class="hp-line egout" pathLength="1" d="M80 100H480"/>
+        <path class="hp-line egout" pathLength="1" d="M480 330H80"/>
+        <path class="hp-line egout" pathLength="1" d="M80 330V100"/>
+        <path class="hp-line egout" pathLength="1" d="M480 100V330"/>
+        <path class="hp-line aretier" pathLength="1" d="M80 100 210 215"/>
+        <path class="hp-line aretier" pathLength="1" d="M80 330 210 215"/>
+        <path class="hp-line aretier" pathLength="1" d="M480 100 350 215"/>
+        <path class="hp-line aretier" pathLength="1" d="M480 330 350 215"/>
+        <path class="hp-line faitage" pathLength="1" d="M210 215H350"/>
+        <!-- dimensions -->
+        <g class="hp-dim">
+          <path d="M80 62V78M480 62V78M80 70H480"/>
+          <rect x="246" y="58" width="68" height="24" rx="12"/>
+          <text x="280" y="74.5">16,00 m</text>
+          <path d="M510 100H526M510 330H526M518 100V330"/>
+          <rect x="484" y="203" width="68" height="24" rx="12"/>
+          <text x="518" y="219.5">10,00 m</text>
+        </g>
+        <g class="hp-tag faitage"><rect x="232" y="186" width="96" height="20" rx="10"/><text x="280" y="200">Faîtage 5,60 m</text></g>
+      </svg>
+      <figcaption class="hero-chip">
+        <span class="hero-chip-lock"><svg><use href="#i-lock"/></svg></span>
+        <span><b>211.113 · Chéneaux mi-ronds</b><small>Quantité verrouillée par Ström</small></span>
+        <strong>33,6 m</strong>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="portal-grid">
+    <button class="portal" id="companyPortal">
+      <span class="portal-icon"><svg><use href="#i-building"/></svg></span>
+      <span class="portal-text">
+        <small>Entreprise</small>
+        <strong>Répondre à une soumission</strong>
+        <p>Choisir un poste, rechercher l’adresse et compléter les prix du bordereau préparé par Ström.</p>
+      </span>
+      <b>Accéder sans connexion <svg><use href="#i-arrow-right"/></svg></b>
+    </button>
+    <button class="portal internal" id="stromPortal">
+      <span class="portal-icon"><svg><use href="#i-roof"/></svg></span>
+      <span class="portal-text">
+        <small>Interne</small>
+        <strong>Espace Ström</strong>
+        <p>Créer un projet et préparer les quantités et unités qui seront transmises aux entreprises.</p>
+      </span>
+      <b>Préparer un projet <svg><use href="#i-arrow-right"/></svg></b>
+    </button>
+  </div>
+
+  <ol class="how">
+    <li><span>1</span><div><b>Ström mesure</b><p>Toiture vérifiée sur la photo aérienne, métrés calculés et verrouillés.</p></div></li>
+    <li><span>2</span><div><b>L’entreprise chiffre</b><p>Elle retrouve le bordereau par l’adresse et saisit uniquement ses prix unitaires.</p></div></li>
+    <li><span>3</span><div><b>Ström compare</b><p>Les offres arrivent sur les mêmes quantités : la comparaison est directe.</p></div></li>
+  </ol>
+</section>
+
+<!-- ENTREPRISE · 1 POSTE -->
+<section id="tradeStep" class="panel">
+  <button class="back" data-go="home"><svg><use href="#i-arrow-left"/></svg>Accueil</button>
+  <div class="page-head">
+    <p class="eyebrow">Soumission entreprise</p>
+    <h1>Quel poste souhaitez-vous chiffrer ?</h1>
+    <p class="lead">Le bordereau et les quantités ont été préparés au préalable par Ström.</p>
+  </div>
+  <div id="tradeGrid" class="trade-grid"></div>
+</section>
+
+<!-- ENTREPRISE · 2 ADRESSE -->
+<section id="companySearch" class="panel address-page">
+  <button class="back" data-go="tradeStep"><svg><use href="#i-arrow-left"/></svg>Changer de poste</button>
+  <div class="address-hero">
+    <p class="eyebrow">Rechercher un projet</p>
+    <h1>Où se trouve le projet ?</h1>
+    <p>Entrez l’adresse du chantier. Si Ström a préparé ce poste, le bordereau validé apparaîtra automatiquement.</p>
+    <div class="search-shell">
+      <div class="search-icon"><svg><use href="#i-search"/></svg></div>
+      <input id="companyAddress" autocomplete="off" placeholder="Commencez à taper une adresse…" aria-label="Adresse du chantier">
+      <button id="companyFind" class="search-action" disabled>Ouvrir le projet</button>
+      <div id="companyAddressResults" class="address-results"></div>
+    </div>
+    <p id="companyStatus" class="status search-status" role="status"></p>
+  </div>
+</section>
+
+<!-- ENTREPRISE · 3 BORDEREAU -->
+<section id="companyQuote" class="panel">
+  <button class="back" data-go="companySearch"><svg><use href="#i-arrow-left"/></svg>Autre projet</button>
+  <div class="project-head">
+    <div>
+      <p class="eyebrow">Bordereau Ström</p>
+      <h1 id="companyProjectTitle"></h1>
+      <p id="companyProjectMeta" class="lead with-pin"></p>
+    </div>
+    <div class="source-badge"><svg><use href="#i-lock"/></svg>Quantités verrouillées par Ström</div>
+  </div>
+
+  <div class="company-card">
+    <div class="card-title"><h2>Votre entreprise</h2><p>Ces informations figureront sur l’offre transmise à Ström.</p></div>
+    <div class="company-grid">
+      <label>Nom de l’entreprise<input id="companyName" placeholder="Entreprise SA" autocomplete="organization"></label>
+      <label>Responsable de l’offre<input id="contactName" placeholder="Nom et prénom" autocomplete="name"></label>
+      <label>E-mail<input id="email" type="email" placeholder="nom@entreprise.ch" autocomplete="email"></label>
+      <label>N° TVA<input id="vat" placeholder="CHE-…"></label>
+    </div>
+  </div>
+
+  <div class="quote full">
+    <div class="quote-header"><span>Désignation</span><span>Qté</span><span>Unité</span><span>Prix unitaire</span><span>Total</span></div>
+    <div id="companyRows"></div>
+    <label class="notes-label">Remarques / exclusions<textarea id="companyNotes" placeholder="Variantes, exclusions, délais, conditions…"></textarea></label>
+    <div class="quote-footer">
+      <div class="total"><span>Total HT</span><strong id="companyTotal">0.00 CHF</strong></div>
+      <button id="companyReview" class="primary">Vérifier la soumission<svg><use href="#i-arrow-right"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREPRISE · 4 VÉRIFICATION -->
+<section id="companyReviewStep" class="panel">
+  <button class="back" data-go="companyQuote"><svg><use href="#i-arrow-left"/></svg>Modifier</button>
+  <div class="page-head">
+    <p class="eyebrow">Vérification</p>
+    <h1>Votre soumission</h1>
+    <p class="lead">Relisez les prix avant l’envoi. Les lignes sans prix restent « non renseignées » et ne bloquent pas l’envoi.</p>
+  </div>
+  <div class="review-layout">
+    <div id="companySummary" class="summary"></div>
+    <aside class="sendbox">
+      <span class="sendbox-icon"><svg><use href="#i-send"/></svg></span>
+      <h2>Transmettre à Ström</h2>
+      <p>Votre offre est ajoutée au dossier de votre entreprise pour ce projet.</p>
+      <button id="sendBtn" class="primary">Envoyer la soumission à Ström</button>
+      <p id="sendStatus" class="status" role="status"></p>
+    </aside>
+  </div>
+</section>
+
+<!-- STRÖM · 1 PROJETS -->
+<section id="stromStart" class="panel">
+  <button class="back" data-go="home"><svg><use href="#i-arrow-left"/></svg>Accueil</button>
+  <div class="internal-head">
+    <p class="eyebrow"><span class="dot"></span>Espace interne Ström · authentification à ajouter</p>
+    <h1>Préparer un projet</h1>
+    <p class="lead">Créez le projet à partir de son adresse puis vérifiez la toiture avant de préparer les métrés.</p>
+  </div>
+  <div class="search-shell internal-search">
+    <div class="search-icon"><svg><use href="#i-search"/></svg></div>
+    <input id="stromAddress" autocomplete="off" placeholder="Adresse du nouveau projet…" aria-label="Adresse du nouveau projet">
+    <button id="createProject" class="search-action" disabled>Créer le projet</button>
+    <div id="stromAddressResults" class="address-results"></div>
+  </div>
+  <p id="stromStatus" class="status search-status" role="status"></p>
+  <div id="savedProjects" class="saved-projects"></div>
+</section>
+
+<!-- STRÖM · 2 TOITURE -->
+<section id="stromRoofCheck" class="panel">
+  <button class="back" id="roofBack"><svg><use href="#i-arrow-left"/></svg>Projet</button>
+  <div class="project-head">
+    <div>
+      <p class="eyebrow">Vérification toiture</p>
+      <h1 id="roofCheckTitle">Calepinage de contrôle</h1>
+      <p id="roofCheckMeta" class="lead with-pin"></p>
+    </div>
+    <div class="source-badge">OFEN + corrections Ström</div>
+  </div>
+  <div class="roof-workspace">
+    <div class="roof-canvas-card">
+      <div class="roof-toolbar">
+        <button id="togglePanMode" class="secondary active-tool">Activer / désactiver un pan</button>
+        <button id="addObstacleMode" class="secondary">+ Ajouter un obstacle</button>
+      </div>
+      <svg id="roofSvg" viewBox="0 0 1000 650" aria-label="Plan de toiture"></svg>
+      <p class="roof-help" id="roofHelp">Cliquez sur un pan pour l’inclure ou l’exclure du métrage.</p>
+    </div>
+    <aside class="roof-side">
+      <div class="metric-stack">
+        <div><span>Surface brute OFEN</span><strong id="roofGross">—</strong></div>
+        <div><span>Pans retenus</span><strong id="roofSelected">—</strong></div>
+        <div><span>Obstacles</span><strong id="roofObstacleArea">—</strong></div>
+        <div class="net"><span>Surface nette retenue</span><strong id="roofNet">—</strong></div>
+      </div>
+      <div id="obstacleEditor" class="obstacle-editor hidden">
+        <h3>Nouvel obstacle</h3>
+        <label>Type<select id="obstacleType"><option>Velux</option><option>Cheminée</option><option>Lucarne</option><option>Ventilation</option><option>Zone non concernée</option><option>Autre</option></select></label>
+        <div class="obstacle-dims">
+          <label>Largeur (m)<input id="obstacleW" type="number" min="0.1" step="0.1" value="1"></label>
+          <label>Hauteur (m)<input id="obstacleH" type="number" min="0.1" step="0.1" value="1"></label>
+        </div>
+        <p>Cliquez ensuite sur l’emplacement correspondant sur le toit.</p>
+      </div>
+      <div class="legacy-obstacles"><h3>Obstacles ajoutés</h3><div id="obstacleList" class="obstacle-list"></div></div>
+      <div class="roof-actions"><button id="saveRoofCheck" class="primary">Valider la toiture et recalculer les métrés</button></div>
+    </aside>
+  </div>
+</section>
+
+<!-- STRÖM · 3 PROJET -->
+<section id="stromProject" class="panel">
+  <button class="back" data-go="stromStart"><svg><use href="#i-arrow-left"/></svg>Mes projets</button>
+  <div class="project-head">
+    <div>
+      <p class="eyebrow">Projet Ström</p>
+      <h1 id="stromProjectTitle"></h1>
+      <p id="stromProjectMeta" class="lead"></p>
+    </div>
+    <div class="project-tools"><button id="openRoofCheck" class="secondary"><svg><use href="#i-edit"/></svg>Vérifier / modifier la toiture</button></div>
+  </div>
+  <div class="section-head"><h2>Choisissez le poste à préparer</h2><p>Un poste devient visible pour les entreprises une fois validé.</p></div>
+  <div id="stromTradeGrid" class="trade-grid compact"></div>
+  <section class="submission-hub">
+    <div class="submission-hub-head">
+      <div><p class="eyebrow">Offres entreprises</p><h2>Soumissions reçues</h2><p>Les postes validés par une même entreprise sont regroupés dans un rapport unique.</p></div>
+      <span id="submissionCount" class="submission-count">0 reçue</span>
+    </div>
+    <div id="stromSubmissions" class="submission-list"><div class="empty-state">Aucune soumission reçue pour ce projet.</div></div>
+  </section>
+</section>
+
+<!-- STRÖM · 4 MÉTRÉ -->
+<section id="stromMeasure" class="panel">
+  <button class="back" data-go="stromProject"><svg><use href="#i-arrow-left"/></svg>Postes du projet</button>
+  <div class="project-head">
+    <div>
+      <p class="eyebrow">Métré interne</p>
+      <h1 id="measureTitle"></h1>
+      <p id="measureMeta" class="lead with-pin"></p>
+    </div>
+    <div class="source-badge">Visible par l’entreprise après validation</div>
+  </div>
+  <div class="measure-card">
+    <div id="ferblanterieOptions" class="option-card" style="display:none">
+      <div class="option-card-head"><strong>Descentes d’eaux pluviales</strong><p>Si les descentes sont conservées, renseigner uniquement la longueur réellement remplacée ou adaptée.</p></div>
+      <div class="option-card-fields">
+        <label>Descentes existantes conservées ?<select id="downpipesExisting"><option value="no">Non — descentes neuves</option><option value="yes">Oui — descentes conservées</option></select></label>
+        <label id="downpipeNewLengthWrap" style="display:none">Longueur de tuyau neuf / adaptation<span class="input-suffix"><input id="downpipeNewLength" type="number" min="0" step="0.1" value="0"><i>m</i></span></label>
+      </div>
+    </div>
+    <div class="measure-header"><span>Désignation</span><span>Quantité</span><span>Unité</span><span>Entreprise</span><span></span></div>
+    <div id="measureRows"></div>
+    <div class="measure-add"><button id="addMeasureRow" class="secondary"><svg><use href="#i-plus"/></svg>Ajouter une ligne</button></div>
+    <div class="measure-actions">
+      <p id="measureStatus" class="status" role="status"></p>
+      <button id="saveDraft" class="secondary"><svg><use href="#i-save"/></svg>Enregistrer le brouillon</button>
+      <button id="publishMeasure" class="primary"><svg><use href="#i-check"/></svg>Valider et rendre disponible</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="incompleteModal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="incompleteTitle">
+    <div class="modal-warning"><svg><use href="#i-alert"/></svg></div>
+    <p class="eyebrow">Vérification avant validation</p>
+    <h2 id="incompleteTitle">Le métrage n’est pas entièrement rempli</h2>
+    <p>Les lignes sans quantité ne seront pas transmises à l’entreprise. Vous pourrez toujours revenir modifier le bordereau plus tard.</p>
+    <div id="incompleteList" class="incomplete-list"></div>
+    <div class="modal-actions">
+      <button id="modalEdit" class="secondary">Revenir au formulaire</button>
+      <button id="modalContinue" class="primary">Continuer quand même</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js?v=20261001f"></script>
+<script src="submission-reports.js?v=20261001f"></script>
+<script src="pac-professional-trades.js?v=20261001f"></script>
+<script src="trade-visibility.js?v=20261001f"></script>
+<script src="roof-editor-enhancements.js?v=20261001f"></script>
+<script src="company-sync-fix.js?v=20261001f"></script>
+<script src="roof-professional.js?v=20261001f"></script>
+<script src="ui.js?v=20261001f"></script>
+</body>
+</html>
